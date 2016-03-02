@@ -4,13 +4,14 @@ begin
 set_mode(320240);
 set_fps(30,2);
 
-load_fpg("smb/smb.FPG");
+load_fpg("div-smb/smb.FPG");
 
 define_region(1,0,8,320,224);
 
 start_scroll(1,file,0,101,1,0);
 
 mario();
+
 loop
 
 //scroll[1].x0++;
@@ -83,7 +84,7 @@ loop
 
     if(walking>0)
 
-        x+=dir*2;
+        x+=dir*3;
 
         if(jump>=8)
             walking--;
@@ -92,13 +93,13 @@ loop
                 graph=4;
             end
 
-            if(anim++%2==1);
+            if(anim++%10==1);
                 graph++;
             end
         end
 
-        if(scroll[1].x0<x-128)
-            scroll[1].x0+=2;
+        if(scroll[1].x0<x-328)
+            scroll[1].x0=x;//;+=3;
         end
 
     end
